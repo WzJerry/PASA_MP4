@@ -5,8 +5,8 @@ import java.io.IOException;
 
 public class Reduce_3 extends Reducer<Text, Text,Text, Text> {
     private static int result = 0;
-    public void cleanUp(Context context) throws IOException, InterruptedException {
-        context.write(new Text("Result:"), new Text("" + result));
+    public void cleanup(Context context) throws IOException, InterruptedException {
+        context.write(new Text("Result: "), new Text("" + result));
     }
     public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         boolean flag = false;
@@ -15,7 +15,7 @@ public class Reduce_3 extends Reducer<Text, Text,Text, Text> {
             if(value.toString().equalsIgnoreCase("+")){
                 flag = true;
             }else if(value.toString().equalsIgnoreCase("-")) {
-                count++;
+                count ++;
             }
         }
         if(flag) {

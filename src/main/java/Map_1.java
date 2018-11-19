@@ -12,6 +12,8 @@ public class Map_1 extends Mapper<Object, Text, Text, Text> {
             context.write(new Text(b + "+" + a), new Text("+"));
         }else if(a.compareTo(b) < 0) {
             context.write(new Text(a + "+" + b), new Text("+"));
+        }else {
+            return ;
         }
     }
 }

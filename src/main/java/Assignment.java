@@ -18,7 +18,7 @@ public class Assignment {
         job1.setOutputKeyClass(Text.class);
         job1.setMapOutputValueClass(Text.class);
         FileInputFormat.setInputPaths(job1, new Path("/data/graphTriangleCount/gplus_combined.unique.txt"));
-        FileOutputFormat.setOutputPath(job1, new Path("/user/2018st18/exp4_3/result1/"));
+        FileOutputFormat.setOutputPath(job1, new Path("/user/2018st18/exp4_1/result1/"));
         job1.waitForCompletion(true);
 
         Configuration conf2 = new Configuration();
@@ -31,8 +31,8 @@ public class Assignment {
         job2.setMapOutputValueClass(Text.class);
         job2.setOutputKeyClass(Text.class);
         job2.setMapOutputValueClass(Text.class);
-        FileInputFormat.setInputPaths(job2, new Path("/user/2018st18/exp4_3/result1/"));
-        FileOutputFormat.setOutputPath(job2, new Path("/user/2018st18/exp4_3/result2/"));
+        FileInputFormat.setInputPaths(job2, new Path("/user/2018st18/exp4_1/result1/"));
+        FileOutputFormat.setOutputPath(job2, new Path("/user/2018st18/exp4_1/result2/"));
         job2.waitForCompletion(job1.isComplete());
 
         Configuration conf3 = new Configuration();
@@ -45,8 +45,8 @@ public class Assignment {
         job3.setMapOutputValueClass(Text.class);
         job3.setOutputKeyClass(Text.class);
         job3.setMapOutputValueClass(Text.class);
-        FileInputFormat.setInputPaths(job3, new Path("/user/2018st18/exp4_3/result2/"));
-        FileOutputFormat.setOutputPath(job3, new Path("/user/2018st18/exp4_3/result3/"));
+        FileInputFormat.setInputPaths(job3, new Path("/user/2018st18/exp4_1/result2/"));
+        FileOutputFormat.setOutputPath(job3, new Path("/user/2018st18/exp4_1/result3/"));
         job3.waitForCompletion(job2.isComplete());
     }
 }
